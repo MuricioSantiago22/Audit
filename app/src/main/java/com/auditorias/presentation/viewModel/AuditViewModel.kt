@@ -23,11 +23,8 @@ class AuditViewModel@Inject constructor(
     private val _auditDataList : MutableLiveData<List<Audit>> = MutableLiveData()
     val auditDataList: LiveData<List<Audit>> get() = _auditDataList
 
-    init {
-        getAuditData()
-    }
 
-    private fun getAuditData(){
+     fun getAuditData(){
         viewModelScope.launch(coroutineContext){
             val response = getAuditDataUseCase()
             withContext(Dispatchers.Main){

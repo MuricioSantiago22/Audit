@@ -25,7 +25,10 @@ class AuditAdapter(private var audits: List<Audit>) : RecyclerView.Adapter<Audit
 
     override fun getItemCount() = audits.size
 
-
+    fun updateData(newAudits: List<Audit>) {
+        audits = newAudits
+        notifyDataSetChanged()
+    }
 
 }
 
